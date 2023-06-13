@@ -33,10 +33,19 @@ const musica_04 = new Song(
 const musicas = [musica_01, musica_02, musica_03, musica_04];
 
 router.get("/", (req, res) => {
+  return res.status(200).json({
+    "Integrante 01": "Leandro Simeão",
+    "Integrante 02": "Mateus Maia",
+    "Integrante 03": "Seara Saback",
+    "Integrante 04": "Simei Alves",
+  });
+});
+
+router.get("/songs/", (req, res) => {
   return res.status(200).json(musicas);
 });
 
-router.get("/:id", (req, res) => {
+router.get("/songs/:id", (req, res) => {
   const id = req.params.id;
   const musica = musicas.find((musica) => musica.id == id);
   if (!musica) {
