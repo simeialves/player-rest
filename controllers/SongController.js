@@ -54,4 +54,8 @@ router.get("/songs/:id", (req, res) => {
   return res.status(200).json(musica);
 });
 
+router.get("/ping", (req, res) => {
+  return res.status(200).json({ message: "pong" });
+});
+
 module.exports = router;
